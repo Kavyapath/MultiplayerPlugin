@@ -65,6 +65,13 @@ bool UMenu::Initialize()
 	return true;
 }
 
+void UMenu::NativeDestruct()
+{
+	MenuTearDown();
+	Super::NativeDestruct();
+	
+}
+
 
 
 void UMenu::OnCreateSession(bool bWasSuccessful)
@@ -75,7 +82,7 @@ void UMenu::OnCreateSession(bool bWasSuccessful)
 		if (World)
 		{
 			World->ServerTravel(PathToLobby);
-			MenuTearDown();
+			
 		}
 	}
 	else
